@@ -1,4 +1,4 @@
 git add -A
-git commit -m "db.py, models.py & schemas.py -> done"
+git commit -m "crud.py -> done"
 git push -u origin main
 git status
