@@ -1,7 +1,4 @@
-git init
 git add -A
-git commit -m "Project in progress | auth.py -> done"
-git branch -M main
-git remote add origin https://github.com/CarlosViniMSouza/pokedex-FARMStack.git
+git commit -m "data.py & checkAPI.py -> done"
 git push -u origin main
 git status
