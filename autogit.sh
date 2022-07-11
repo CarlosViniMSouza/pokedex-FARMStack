@@ -1,4 +1,4 @@
 git add -A
-git commit -m "frontend: problems with pokedex folder | Next Step: connect templates folder with auth.py"
+git commit -m "backend: problems with APIRouter in register and login"
 git push
 git status

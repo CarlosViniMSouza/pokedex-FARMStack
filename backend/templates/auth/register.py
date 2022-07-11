@@ -1,31 +1,28 @@
 from fastapi.responses import HTMLResponse
-from fastapi import FastAPI
+from fastapi import APIRouter
 
 
-app = FastAPI
-
-def registerHTML():
-    contentHTML = """
-    {% extends 'base.html' %}
-
-    {% block header %}
-    <h1>{% block title %}Register{% endblock %}</h1>
-    {% endblock %}
-    
-    {% block content %}
-    <form method="post">
-      <label for="username">Username</label>
-      <input name="username" id="username" required>
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" required>
-      <input type="submit" value="Register">
-    </form>
-    {% endblock %}
-    """
-
-    return HTMLResponse(content=contentHTML, status_code=200)
+app = APIRouter()
 
 
-@app.get("/register/", response_model=HTMLResponse)
+@app.get("/createUser/", response_model=HTMLResponse)
 async def register():
-    return registerHTML()
+    contentHTML = """
+        {% extends 'base.html' %}
+
+        {% block header %}
+        <h1>{% block title %}Register{% endblock %}</h1>
+        {% endblock %}
+
+        {% block content %}
+        <form method="post">
+          <label for="username">Username</label>
+          <input name="username" id="username" required>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" required>
+          <input type="submit" value="Register">
+        </form>
+        {% endblock %}
+        """
+
+    return HTMLResponse(content=contentHTML)

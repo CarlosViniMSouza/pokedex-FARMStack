@@ -1,10 +1,12 @@
 from fastapi.responses import HTMLResponse
-from fastapi import FastAPI
+from fastapi import APIRouter
 
 
-app = FastAPI
+app = APIRouter()
 
-def baseHTML():
+
+@app.get("/page/", response_class=HTMLResponse)
+async def base():
     contentHTML = """
     <!DOCTYPE html>
     <title>{% block title %}{% endblock %} - Flaskr</title>
@@ -32,8 +34,4 @@ def baseHTML():
     </section>
     """
 
-    return HTMLResponse(content=contentHTML, status_code=200)
-
-@app.get("/page/", response_class=HTMLResponse)
-async def base():
-    return baseHTML()
+    return HTMLResponse(content=contentHTML)

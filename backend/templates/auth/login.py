@@ -1,11 +1,12 @@
 from fastapi.responses import HTMLResponse
-from fastapi import FastAPI
+from fastapi import APIRouter
 
 
-app = FastAPI()
+app = APIRouter()
 
 
-def loginHTML():
+@app.get("/logUser/", response_model=HTMLResponse)
+async def login():
     contentHTML = """
     {% extends 'base.html' %}
 
@@ -25,7 +26,3 @@ def loginHTML():
     """
 
     return HTMLResponse(content=contentHTML, status_code=200)
-
-@app.get("/login/", response_model=HTMLResponse)
-async def login():
-    return loginHTML()
