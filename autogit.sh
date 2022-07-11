@@ -1,4 +1,4 @@
 git add -A
-git commit -m "backend: FastAPI + HTML -> ok | Next Step: connect auth.py with HTML"
+git commit -m "frontend: changed folders | Next Step: connect templates folder with auth.py"
 git push
 git status
